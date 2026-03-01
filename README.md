@@ -1,17 +1,17 @@
-﻿# Matrix Multiplication (Simple Student Version)
+﻿# Умножение матриц (простая версия)
 
-Simple C++ program for multiplying two square matrices.
+Простая программа на C++ для умножения двух квадратных матриц.
 
-## What the program does
-- Reads two square matrices from files.
-- Multiplies them.
-- Saves result matrix to file.
-- Prints matrix size, operation count (`2*N^3`) and runtime.
-- Runs automatic verification with Python + NumPy.
-- Saves benchmark table to `results/timing.csv`.
-- Builds PNG chart with matplotlib: `results/performance.png`.
+## Что делает программа
+- Читает 2 матрицы из файлов.
+- Перемножает их.
+- Сохраняет результат в файл.
+- Выводит размер матрицы, объём задачи (`2*N^3`) и время выполнения.
+- Автоматически проверяет результат через Python + NumPy.
+- Сохраняет таблицу замеров в `results/timing.csv`.
+- Строит график производительности через matplotlib: `results/performance.png`.
 
-## Matrix file format
+## Формат файла матрицы
 
 ```text
 N
@@ -20,7 +20,7 @@ a11 a12 ... a1N
 aN1 aN2 ... aNN
 ```
 
-Example (`2x2`):
+Пример (`2x2`):
 
 ```text
 2
@@ -28,7 +28,7 @@ Example (`2x2`):
 3 4
 ```
 
-## Build (no CMake)
+## Сборка (без CMake)
 
 ### Windows (MSVC, Developer Command Prompt)
 
@@ -48,42 +48,42 @@ g++ -O2 -std=c++17 main.cpp -o matrix_mul.exe
 g++ -O2 -std=c++17 main.cpp -o matrix_mul
 ```
 
-## Run
+## Запуск
 
-### 1) Automatic mode (recommended)
+### 1) Автоматический режим (рекомендуется)
 
-Runs all pairs from `test_data` (`*_a.txt` + `*_b.txt`), writes matrix results to `results/`.
+Без аргументов программа ищет пары `*_a.txt` и `*_b.txt` в папке `test_data` и сохраняет результаты в `results`.
 
 ```cmd
 matrix_mul.exe
 ```
 
-### 2) Manual mode
+### 2) Ручной режим
 
 ```cmd
 matrix_mul.exe A.txt B.txt C.txt
 ```
 
-## Python dependencies
+## Зависимости Python
 
-Install once:
+Установить один раз:
 
 ```cmd
 py -3 -m pip install numpy matplotlib
 ```
 
-## Verification and visualization
+## Проверка и визуализация
 
-Program automatically runs:
-- `scripts/verify.py` for each case
-- `scripts/visualize.py results/timing.csv` after run
+После запуска программа автоматически вызывает:
+- `scripts/verify.py` для каждой пары матриц;
+- `scripts/visualize.py results/timing.csv` после завершения всех вычислений.
 
-Generated files:
-- `results/<case>_result.txt`
+Создаются файлы:
+- `results/<имя_кейса>_result.txt`
 - `results/timing.csv`
 - `results/performance.png`
 
-Verification status in CSV:
-- `OK` - result is correct
-- `FAILED` - result mismatch or input error
-- `SKIPPED` - Python is not available in PATH
+## Статусы проверки (в CSV)
+- `OK` — результат верный.
+- `FAILED` — результат не совпал или ошибка входных данных.
+- `SKIPPED` — Python не найден в PATH.
